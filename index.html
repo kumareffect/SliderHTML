@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            background-image: linear-gradient(to bottom right, pink, blue, red, green, coral, crimson, black, red);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            transform: rotate(360deg);
+            animation: 05.s ease infinite;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div><br>
+    <input type="range" min="0" max="100" value="100" class="range">
+    <div class="rvalue"></div>
+    <script>
+        const container = document.querySelector('.container');
+        const range = document.querySelector('.range');
+        const rvalue = document.querySelector('.rvalue');
+        rvalue.innerText = range.value;
+
+        range.addEventListener('input', ()=>{
+
+            rvalue.innerText = range.value;
+            container.style.opacity=(range.value) / 100;
+
+            container.style.transform=`rotate(${range.value}deg)`;
+        })
+
+    </script>
+</body>
+</html>
